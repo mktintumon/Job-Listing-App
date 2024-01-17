@@ -63,7 +63,7 @@ console.log(post);
       {post &&
         post.map((p) => {
           return (
-            <Grid key={Math.random()*10} item xs={12} md={6} lg={4}>
+            <Grid key={Math.random()*1000} item xs={12} md={6} lg={4}>
               <Card sx={{ padding: "3%", overflow: "hidden", width: "84%" }}>
                 <Typography
                   variant="h5"
