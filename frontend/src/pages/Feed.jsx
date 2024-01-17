@@ -16,12 +16,16 @@ const Feed = () => {
   const [query, setQuery] = useState("");
   const [post, setPost] = useState();
 
-  //
+  const id = 1;
+
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await axios.get(`http://localhost:8080/posts/${query}`);
       setPost(response.data);
     };
+
+
     const fetchInitialPosts = async () => {
         const response = await axios.get(`http://localhost:8080/allPosts`);
         console.log(response);
@@ -30,7 +34,10 @@ const Feed = () => {
     if (query.length === 0) fetchInitialPosts();
     if (query.length > 2) fetchPosts();
   }, [query]);
+
 console.log(post);
+
+
   return (
     <Grid container spacing={2} sx={{ margin: "2%" }}>
       <Grid item xs={12} sx={12} md={12} lg={12}>
@@ -56,7 +63,7 @@ console.log(post);
       {post &&
         post.map((p) => {
           return (
-            <Grid key={p.id} item xs={12} md={6} lg={4}>
+            <Grid key={Math.random()*10} item xs={12} md={6} lg={4}>
               <Card sx={{ padding: "3%", overflow: "hidden", width: "84%" }}>
                 <Typography
                   variant="h5"
